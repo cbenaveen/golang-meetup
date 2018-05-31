@@ -3,18 +3,26 @@ package main
 import (
 	"bufio"
 	"fmt"
+	"log"
 	"os"
+	"path/filepath"
 	"sync"
 )
 
 func main() {
+	dir, err := filepath.Abs(filepath.Dir(os.Args[0]))
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Println(dir)
+
 	var wg sync.WaitGroup
 
 	wg.Add(3)
 
-	go readFile(&wg, "/Users/nkanagar/Downloads/pg20417.txt")
-	go readFile(&wg, "/Users/nkanagar/Downloads/pg4300.txt")
-	go readFile(&wg, "/Users/nkanagar/Downloads/5000-8.txt")
+	go readFile(&wg, "../pg20417.txt")
+	go readFile(&wg, "../pg4300.txt")
+	go readFile(&wg, "../5000-8.txt")
 
 	//var message = sayHello("Naveen")
 

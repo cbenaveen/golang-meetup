@@ -15,9 +15,9 @@ func main() {
 
 	wg.Add(3)
 
-	go readFile(&wg, &mux, wordCountTable, "/Users/nkanagar/Downloads/pg20417.txt")
-	go readFile(&wg, &mux, wordCountTable, "/Users/nkanagar/Downloads/pg4300.txt")
-	go readFile(&wg, &mux, wordCountTable, "/Users/nkanagar/Downloads/5000-8.txt")
+	go readFile(&wg, &mux, wordCountTable, "../pg20417.txt")
+	go readFile(&wg, &mux, wordCountTable, "../pg4300.txt")
+	go readFile(&wg, &mux, wordCountTable, "../5000-8.txt")
 
 	wg.Wait()
 
